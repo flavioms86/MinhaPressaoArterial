@@ -4,4 +4,8 @@
     <string name="open">Aberto</string>
     <string name="close">Fechado</string>
     <string name="title">Minha Pressão Arterial</string>
+    <string name="history">Histórico</string>
+    <string name="help">Ajuda</string>
+    <string name="about">Sobre</string>
+    <string name="my_blood_pressure">Minha Pressão Arterial</string>
 </resources>

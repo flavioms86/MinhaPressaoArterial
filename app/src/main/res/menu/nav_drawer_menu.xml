@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/imItem1"
-        android:title="Item 1"/>
+        android:id="@+id/imHistory"
+        android:title="@string/history"
+        android:icon="@drawable/ic_baseline_history_24"/>
 
     <item
-        android:id="@+id/imItem2"
-        android:title="Item 2"/>
+        android:id="@+id/imHelp"
+        android:title="@string/help"
+        android:icon="@drawable/ic_baseline_help_outline_24"/>
 
     <item
-        android:id="@+id/imItem3"
-        android:title="Item 3"/>
+        android:id="@+id/imAbout"
+        android:title="@string/about"
+        android:icon="@drawable/ic_baseline_about_24"/>
 
 </menu>

@@ -1,7 +1,6 @@
 package com.example.minhapressaoarterial
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -52,9 +51,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.imItem1 -> Toast.makeText(this, "Item 1", Toast.LENGTH_LONG).show()
-            R.id.imItem2 -> Toast.makeText(this, "Item 2", Toast.LENGTH_LONG).show()
-            R.id.imItem3 -> Toast.makeText(this, "Item 3", Toast.LENGTH_LONG).show()
+            R.id.imHistory -> Toast.makeText(this, "Item 1", Toast.LENGTH_LONG).show()
+            R.id.imHelp -> Toast.makeText(this, "Item 2", Toast.LENGTH_LONG).show()
+            R.id.imAbout -> Toast.makeText(this, "Item 3", Toast.LENGTH_LONG).show()
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
