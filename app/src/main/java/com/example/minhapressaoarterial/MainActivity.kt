@@ -1,5 +1,6 @@
 package com.example.minhapressaoarterial
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,14 +10,15 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
     lateinit var navigationView: NavigationView
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var fabAdd: FloatingActionButton
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,20 +26,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         drawerLayout = findViewById(R.id.drawerLayout)
+        fabAdd = findViewById(R.id.fabAdd)
 
         toggle = ActionBarDrawerToggle(
-            this, drawerLayout, toolbar, R.string.open, R.string.close
+            this, drawerLayout, R.string.open, R.string.close
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         navigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
+
+        fabAdd.setOnClickListener {
+            val intent = Intent(this, NewRegisterActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

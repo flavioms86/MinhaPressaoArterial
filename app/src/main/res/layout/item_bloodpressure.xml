@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivHealthStatus"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/ic_healtstatus"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvSis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="SIS:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivHealthStatus"
+            app:layout_constraintStart_toEndOf="@id/ivHealthStatus"
+            app:layout_constraintTop_toTopOf="@id/ivHealthStatus"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <TextView
+            android:id="@+id/tvSisResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="128"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSis"
+            app:layout_constraintStart_toEndOf="@id/tvSis"
+            app:layout_constraintTop_toTopOf="@+id/tvSis" />
+
+        <TextView
+            android:id="@+id/tvDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="DIA:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSisResult"
+            app:layout_constraintStart_toEndOf="@+id/tvSisResult"
+            app:layout_constraintTop_toTopOf="@+id/tvSisResult" />
+
+        <TextView
+            android:id="@+id/tvDiaResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="80"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDia"
+            app:layout_constraintStart_toEndOf="@id/tvDia"
+            app:layout_constraintTop_toTopOf="@+id/tvDia" />
+
+        <TextView
+            android:id="@+id/tvPul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="PUL:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDiaResult"
+            app:layout_constraintStart_toEndOf="@id/tvDiaResult"
+            app:layout_constraintTop_toTopOf="@+id/tvDiaResult" />
+
+        <TextView
+            android:id="@+id/tvPulResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="95"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPul"
+            app:layout_constraintStart_toEndOf="@id/tvPul"
+            app:layout_constraintTop_toTopOf="@+id/tvPul" />
+
+        <TextView
+            android:id="@+id/tvRegistDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Registrado em:"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivHealthStatus"
+            app:layout_constraintTop_toBottomOf="@+id/tvSis" />
+
+        <TextView
+            android:id="@+id/tvRegistDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="17/05/2021 as 10:48"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvRegistDateTitle"
+            app:layout_constraintStart_toEndOf="@+id/tvRegistDateTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvRegistDateTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
