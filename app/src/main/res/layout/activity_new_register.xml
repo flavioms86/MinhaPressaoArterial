@@ -15,6 +15,7 @@
     android:orientation="vertical"
     tools:context=".NewRegisterActivity">
 
+
     <TextView
         android:id="@+id/tvBloodHardware"
         android:layout_width="395dp"
