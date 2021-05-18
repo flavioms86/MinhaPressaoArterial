@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
     lateinit var navigationView: NavigationView
     lateinit var toggle: ActionBarDrawerToggle
@@ -26,14 +27,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        drawerLayout = findViewById(R.id.drawerLayout)
         fabAdd = findViewById(R.id.fabAdd)
 
+        drawerLayout = findViewById(R.id.drawerLayout)
         toggle = ActionBarDrawerToggle(
-            this, drawerLayout, R.string.open, R.string.close
-        )
+            this, drawerLayout, toolbar, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
