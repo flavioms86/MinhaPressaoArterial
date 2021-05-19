@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="32dp"
+        android:layout_margin="16dp"
         android:contentDescription="@string/fab_content_desc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,11 +49,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="70dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/bloodpressurehardware"
                 android:textAlignment="center"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/hintSistolica"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -77,8 +77,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="22sp"
-                    android:inputType="number"/>
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:maxLength="3"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,7 +88,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="4dp"
                 android:hint="@string/hintDiastolica"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -99,8 +100,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="22sp"
-                    android:inputType="number"/>
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:maxLength="3"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,7 +111,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="4dp"
                 android:hint="@string/hintPulso"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -121,8 +123,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
-                    android:textSize="22sp"
-                    android:inputType="number"/>
+                    android:textSize="20sp"
+                    android:inputType="number"
+                    android:maxLength="3"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,7 +133,7 @@
                 android:id="@+id/tvHeathStatusSelector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="@string/titleFeeling"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -144,7 +147,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/header_icon"
+                android:src="@drawable/badhealthicon"
                 android:contentDescription="@string/feelingSad"
                 app:layout_constraintEnd_toStartOf="@+id/ivHealthMedium"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -156,7 +159,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/header_icon"
+                android:src="@drawable/normalhealthicon"
                 android:contentDescription="@string/feelingNormal"
                 app:layout_constraintEnd_toStartOf="@+id/ivHealthGood"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -168,7 +171,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/header_icon"
+                android:src="@drawable/goodhealthicon"
                 android:contentDescription="@string/feelingGood"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

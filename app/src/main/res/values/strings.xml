@@ -8,7 +8,7 @@
     <string name="help">Ajuda</string>
     <string name="about">Sobre</string>
     <string name="my_blood_pressure">Minha Pressão Arterial</string>
-    <string name="bloodpressurehardware">Após aferir sua pressão sanguínea utilizando um esfigmomanômetro, \nentre com os valores nos campos abaixo:</string>
+    <string name="bloodpressurehardware">Após aferir sua pressão sanguínea \nutilizando um esfigmomanômetro, entre \ncom os valores nos campos abaixo:</string>
     <string name="hintSistolica">Sistólica(mmHg)</string>
     <string name="hintDiastolica">Diastólica(mmHg)</string>
     <string name="hintPulso">Pulso(min)</string>
