@@ -16,4 +16,5 @@
     <string name="feelingSad">Se sentindo mal</string>
     <string name="feelingNormal">Se sentindo normal</string>
     <string name="feelingGood">Se sentindo bem</string>
+    <string name="saveButton">Salvar</string>
 </resources>

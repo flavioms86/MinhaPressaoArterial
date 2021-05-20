@@ -17,20 +17,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/fab_content_desc"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_baseline_check_24" />
 
     <androidx.core.widget.NestedScrollView
 
@@ -76,10 +62,10 @@
                     android:id="@+id/tfEditSis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
                     android:inputType="number"
-                    android:maxLength="3"/>
+                    android:maxLength="3"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,10 +85,10 @@
                     android:id="@+id/tfEditDia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
                     android:inputType="number"
-                    android:maxLength="3"/>
+                    android:maxLength="3"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,10 +108,10 @@
                     android:id="@+id/tfEditPul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:textSize="20sp"
                     android:inputType="number"
-                    android:maxLength="3"/>
+                    android:maxLength="3"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -147,8 +133,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/badhealthicon"
                 android:contentDescription="@string/feelingSad"
+                android:src="@drawable/badhealthicon"
                 app:layout_constraintEnd_toStartOf="@+id/ivHealthMedium"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -159,8 +145,8 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/normalhealthicon"
                 android:contentDescription="@string/feelingNormal"
+                android:src="@drawable/normalhealthicon"
                 app:layout_constraintEnd_toStartOf="@+id/ivHealthGood"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/ivHealthBad"
@@ -171,12 +157,26 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/goodhealthicon"
                 android:contentDescription="@string/feelingGood"
+                android:src="@drawable/goodhealthicon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/ivHealthMedium"
                 app:layout_constraintTop_toBottomOf="@id/tvHeathStatusSelector" />
+
+            <Button
+                android:id="@+id/button_save"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:background="@color/design_default_color_primary"
+                android:text="@string/saveButton"
+                android:textColor="@color/white"
+                android:layout_margin="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivHealthMedium" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
