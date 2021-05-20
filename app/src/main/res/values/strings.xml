@@ -17,4 +17,14 @@
     <string name="feelingNormal">Se sentindo normal</string>
     <string name="feelingGood">Se sentindo bem</string>
     <string name="saveButton">Salvar</string>
+    <string name="delete">Excluir</string>
+
+    <!-- Itens do Spinner -->
+
+    <string-array name="health_status">
+        <item>Nada bem</item>
+        <item>Normal</item>
+        <item>Muito bem</item>
+    </string-array>
+
 </resources>
