@@ -37,6 +37,12 @@
             android:layout_height="match_parent"
             tools:context=".MainActivity"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="56dp"
+            android:padding="16dp"/>
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <include layout="@layout/menu_navigation_view"/>
