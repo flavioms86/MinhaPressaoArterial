@@ -1,23 +1,37 @@
 package com.example.minhapressaoarterial.viewmodel
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.example.minhapressaoarterial.database.BloodRepository
 import com.example.minhapressaoarterial.model.BloodPressure
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.lang.IllegalArgumentException
 
 class BloodPressureViewModel(private val repository: BloodRepository) : ViewModel() {
 
-    fun insert (pressure: BloodPressure) = GlobalScope.launch {
+    val allBloodPressures: LiveData<List<BloodPressure>> = repository.allBloodPressures.asLiveData()
+
+
+    fun insertBloodPressure (pressure: BloodPressure) = viewModelScope.launch {
         repository.insert(pressure)
     }
 
-    fun update (pressure: BloodPressure) = GlobalScope.launch {
+    fun updateBloodPressure (pressure: BloodPressure) = viewModelScope.launch {
         repository.update(pressure)
     }
 
-    fun delete(pressure: BloodPressure) = GlobalScope.launch {
+    fun deleteBloodPressure(pressure: BloodPressure) = viewModelScope.launch {
         repository.delete(pressure)
     }
 
+}
+
+class BloodPressureViewModelFactory(private val repository: BloodRepository) : ViewModelProvider.Factory  {
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if(modelClass.isAssignableFrom(BloodPressureViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return BloodPressureViewModel(repository) as T
+        }
+        throw IllegalArgumentException("ViewModel Class desconhecida")
+    }
 }

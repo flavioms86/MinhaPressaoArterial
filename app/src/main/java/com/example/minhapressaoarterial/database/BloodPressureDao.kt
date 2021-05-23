@@ -1,10 +1,9 @@
 package com.example.minhapressaoarterial.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Update
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import com.example.minhapressaoarterial.model.BloodPressure
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BloodPressureDao {
@@ -17,4 +16,7 @@ interface BloodPressureDao {
 
     @Delete
     suspend fun delete(pressure: BloodPressure)
+
+    @Query("SELECT * FROM blood_pressure")
+    fun getAllBloodPressure(): Flow<List<BloodPressure>>
 }
