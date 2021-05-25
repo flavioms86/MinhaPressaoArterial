@@ -8,14 +8,16 @@
     <string name="help">Ajuda</string>
     <string name="about">Sobre</string>
     <string name="my_blood_pressure">Minha Pressão Arterial</string>
+
+    <!-- New register activity -->
+
+    <string name="new_register_toolbar_title">Novo registro</string>
+    <string name="type_all_fields_message">Por favor, preencher todos os campos!</string>
     <string name="bloodpressurehardware">Após aferir sua pressão sanguínea \nutilizando um esfigmomanômetro, entre \ncom os valores nos campos abaixo:</string>
     <string name="hintSistolica">Sistólica(mmHg)</string>
     <string name="hintDiastolica">Diastólica(mmHg)</string>
     <string name="hintPulso">Pulso(min)</string>
     <string name="titleFeeling">Como você esta se sentindo?</string>
-    <string name="feelingSad">Se sentindo mal</string>
-    <string name="feelingNormal">Se sentindo normal</string>
-    <string name="feelingGood">Se sentindo bem</string>
     <string name="saveButton">Salvar</string>
     <string name="delete">Excluir</string>
 
@@ -26,5 +28,20 @@
         <item>Normal</item>
         <item>Muito bem</item>
     </string-array>
+
+    <!-- Itens do Option menu -->
+
+    <string name="Clear">Apagar tudo</string>
+
+    <!-- Alert Dialog -->
+
+    <string name="delete_entries">Remover registros</string>
+    <string name="clear_confirmation_message">Isso removerá todos os registros, você tem certeza?</string>
+    <string name="clear_yes_confirmation">Sim</string>
+    <string name="cleared_entries_message">Registros removidos!</string>
+    <string name="clear_no_confirmation">Não</string>
+    <string name="not_cleared_entries_message">Cancelado</string>
+
+
 
 </resources>

@@ -1,8 +1,12 @@
 package com.example.minhapressaoarterial
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -120,5 +124,40 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.option_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.item_menu_clear -> {
+                clearAllDialog()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun clearAllDialog() {
+
+        val dialogBuilder = AlertDialog.Builder(this)
+        dialogBuilder.setTitle(getString(R.string.delete_entries))
+        dialogBuilder.setMessage(getString(R.string.clear_confirmation_message))
+        dialogBuilder.setPositiveButton(getString(R.string.clear_yes_confirmation), DialogInterface.OnClickListener{ dialog, id ->
+            bloodPressureViewModel.deleteBloodPressure()
+            Toast.makeText(this, getString(R.string.cleared_entries_message), Toast.LENGTH_SHORT).show()
+            dialog.cancel()
+        })
+        dialogBuilder.setNegativeButton(getString(R.string.clear_no_confirmation), DialogInterface.OnClickListener{ dialog, id ->
+            Toast.makeText(this, getString(R.string.not_cleared_entries_message), Toast.LENGTH_SHORT).show()
+            dialog.cancel()
+
+        })
+        val alert = dialogBuilder.create()
+        alert.show()
     }
 }
