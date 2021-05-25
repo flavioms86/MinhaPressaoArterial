@@ -19,7 +19,7 @@
     <string name="hintPulso">Pulso(min)</string>
     <string name="titleFeeling">Como você esta se sentindo?</string>
     <string name="saveButton">Salvar</string>
-    <string name="delete">Excluir</string>
+    <string name="update">Atualizar</string>
 
     <!-- Itens do Spinner -->
 
@@ -42,6 +42,9 @@
     <string name="clear_no_confirmation">Não</string>
     <string name="not_cleared_entries_message">Cancelado</string>
 
+    <!-- Alert Dialog -->
+
+    <string name="new_update_toolbar_title">Atualizar registro</string>
 
 
 </resources>

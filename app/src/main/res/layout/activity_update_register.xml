@@ -28,10 +28,10 @@
 
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".Views.NewRegisterActivity">
+            tools:context=".Views.UpdateRegisterActivity">
 
             <TextView
-                android:id="@+id/tvBloodHardware"
+                android:id="@+id/tvBloodHardwareUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tfLayoutSis"
+                android:id="@+id/tfLayoutSisUpdate"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -56,10 +56,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvBloodHardware">
+                app:layout_constraintTop_toBottomOf="@+id/tvBloodHardwareUpdate">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tfEditSis"
+                    android:id="@+id/tfEditSisUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -70,7 +70,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tfLayoutDia"
+                android:id="@+id/tfLayoutDiaUpdate"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -79,10 +79,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tfLayoutSis">
+                app:layout_constraintTop_toBottomOf="@id/tfLayoutSisUpdate">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tfEditDia"
+                    android:id="@+id/tfEditDiaUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -93,7 +93,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tfLayoutPul"
+                android:id="@+id/tfLayoutPulUpdate"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -102,10 +102,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tfLayoutDia">
+                app:layout_constraintTop_toBottomOf="@id/tfLayoutDiaUpdate">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tfEditPul"
+                    android:id="@+id/tfEditPulUpdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -116,7 +116,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/tvHeathStatusTitle"
+                android:id="@+id/tvHeathStatusTitleUpdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -126,10 +126,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tfLayoutPul" />
+                app:layout_constraintTop_toBottomOf="@id/tfLayoutPulUpdate" />
 
             <Spinner
-                android:id="@+id/spHealthSelector"
+                android:id="@+id/spHealthSelectorUpdate"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -137,22 +137,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvHeathStatusTitle" />
+                app:layout_constraintTop_toBottomOf="@id/tvHeathStatusTitleUpdate" />
 
             <Button
-                android:id="@+id/button_save"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:id="@+id/button_update"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:text="@string/saveButton"
+                android:layout_marginTop="16dp"
+                android:text="@string/update"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spHealthSelector" />
-
-
+                app:layout_constraintTop_toBottomOf="@id/spHealthSelectorUpdate" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

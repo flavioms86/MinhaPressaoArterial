@@ -1,14 +1,13 @@
-package com.example.minhapressaoarterial
+package com.example.minhapressaoarterial.Views
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
-import com.example.minhapressaoarterial.model.BloodPressure
+import com.example.minhapressaoarterial.R
 
 class NewRegisterActivity : AppCompatActivity(){
 
@@ -16,7 +15,6 @@ class NewRegisterActivity : AppCompatActivity(){
     lateinit var textToolbarTitle: TextView
     lateinit var spinner: Spinner
     lateinit var saveButton: Button
-    lateinit var deleteButton: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +52,6 @@ class NewRegisterActivity : AppCompatActivity(){
         val diaResult = findViewById<TextView?>(R.id.tfEditDia)
         val pulResult = findViewById<TextView?>(R.id.tfEditPul)
         saveButton = findViewById(R.id.button_save)
-        deleteButton = findViewById(R.id.button_delete)
 
         saveButton.setOnClickListener {
             val replyIntent = Intent()

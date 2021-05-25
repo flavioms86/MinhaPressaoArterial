@@ -1,4 +1,4 @@
-package com.example.minhapressaoarterial
+package com.example.minhapressaoarterial.Views
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -16,10 +16,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.minhapressaoarterial.R
 import com.example.minhapressaoarterial.adapter.BloodAdapter
 import com.example.minhapressaoarterial.database.BloodPressureApplication
 import com.example.minhapressaoarterial.model.BloodPressure
@@ -27,7 +26,6 @@ import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModel
 import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -64,10 +62,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView.setNavigationItemSelectedListener(this)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rvList)
-        val adapter = BloodAdapter()
+        val adapter = BloodAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-
 
         bloodPressureViewModel.allBloodPressures.observe(this) { bloodPressure ->
             bloodPressure.let { adapter.setBloodPressure(it) }
