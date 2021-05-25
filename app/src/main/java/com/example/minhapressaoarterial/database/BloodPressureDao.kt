@@ -17,6 +17,6 @@ interface BloodPressureDao {
     @Delete
     suspend fun delete(pressure: BloodPressure)
 
-    @Query("SELECT * FROM blood_pressure")
+    @Query("SELECT * FROM blood_pressure ORDER BY bloodId DESC")
     fun getAllBloodPressure(): Flow<List<BloodPressure>>
 }
