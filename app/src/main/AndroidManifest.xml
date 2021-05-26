@@ -10,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MinhaPressaoArterial">
-        <activity android:name=".Views.UpdateRegisterActivity"></activity>
-        <activity android:name=".Views.NewRegisterActivity" />
-        <activity android:name=".Views.MainActivity">
+        <activity android:name=".view.UpdateRegisterActivity"></activity>
+        <activity android:name=".view.NewRegisterActivity" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

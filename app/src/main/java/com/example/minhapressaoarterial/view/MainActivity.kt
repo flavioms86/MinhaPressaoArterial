@@ -1,4 +1,4 @@
-package com.example.minhapressaoarterial.Views
+package com.example.minhapressaoarterial.view
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -27,7 +27,8 @@ import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
+BloodAdapter.OnItemClickListener{
 
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView.setNavigationItemSelectedListener(this)
 
         val recyclerView = findViewById<RecyclerView>(R.id.rvList)
-        val adapter = BloodAdapter(this)
+        val adapter = BloodAdapter(this, this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -74,6 +75,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this, NewRegisterActivity::class.java)
             startActivityForResult(intent, newBloodPressureActivityRequestCode)
         }
+    }
+
+    override fun onItemClick(position: Int) {
+        Toast.makeText(this, "Item $position clicked", Toast.LENGTH_SHORT).show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {

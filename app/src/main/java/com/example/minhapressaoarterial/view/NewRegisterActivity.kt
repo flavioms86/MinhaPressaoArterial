@@ -1,4 +1,4 @@
-package com.example.minhapressaoarterial.Views
+package com.example.minhapressaoarterial.view
 
 import android.app.Activity
 import android.content.Intent

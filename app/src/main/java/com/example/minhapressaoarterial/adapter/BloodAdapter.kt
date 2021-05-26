@@ -6,16 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.ListAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Index
 import com.example.minhapressaoarterial.R
-import com.example.minhapressaoarterial.Views.UpdateRegisterActivity
+import com.example.minhapressaoarterial.view.UpdateRegisterActivity
 import com.example.minhapressaoarterial.model.BloodPressure
 
-class BloodAdapter (val context: Context) : RecyclerView.Adapter<BloodAdapter.BloodPressureViewHolder>(){
+class BloodAdapter (val context: Context, private val listener: OnItemClickListener) :
+    RecyclerView.Adapter<BloodAdapter.BloodPressureViewHolder>(){
 
     private var list = emptyList<BloodPressure>()
 
@@ -26,10 +26,7 @@ class BloodAdapter (val context: Context) : RecyclerView.Adapter<BloodAdapter.Bl
 
     override fun onBindViewHolder(holder: BloodPressureViewHolder, position: Int) {
         holder.bind(list[position])
-        holder.rowItemCardViewLayout.setOnClickListener {
-            val intent = Intent(context, UpdateRegisterActivity::class.java)
-            context.startActivity(intent)
-        }
+
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +38,8 @@ class BloodAdapter (val context: Context) : RecyclerView.Adapter<BloodAdapter.Bl
         notifyDataSetChanged()
     }
 
-    class BloodPressureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class BloodPressureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+    View.OnClickListener {
         private val sisResult: TextView = itemView.findViewById(R.id.tvSisResult)
         private val diaResult: TextView = itemView.findViewById(R.id.tvDiaResult)
         private val pulResult: TextView = itemView.findViewById(R.id.tvPulResult)
@@ -62,6 +60,20 @@ class BloodAdapter (val context: Context) : RecyclerView.Adapter<BloodAdapter.Bl
 
         }
 
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 
 }

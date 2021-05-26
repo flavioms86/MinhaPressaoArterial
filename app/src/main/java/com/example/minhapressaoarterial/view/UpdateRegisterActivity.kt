@@ -1,4 +1,4 @@
-package com.example.minhapressaoarterial.Views
+package com.example.minhapressaoarterial.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
