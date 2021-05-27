@@ -23,4 +23,9 @@ class BloodRepository(private val bloodDao: BloodPressureDao) {
         bloodDao.deleteAll()
     }
 
+    @WorkerThread
+    fun getBloodPressureById(id: Int) {
+        bloodDao.getBloodPressureById(id)
+    }
+
 }

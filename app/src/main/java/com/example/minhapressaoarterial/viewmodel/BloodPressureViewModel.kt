@@ -24,6 +24,10 @@ class BloodPressureViewModel(private val repository: BloodRepository) : ViewMode
         repository.deleteAll()
     }
 
+    fun getBloodPressureById(id: Int) = viewModelScope.launch {
+        repository.getBloodPressureById(id)
+    }
+
 }
 
 class BloodPressureViewModelFactory(private val repository: BloodRepository) : ViewModelProvider.Factory  {

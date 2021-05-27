@@ -1,23 +1,27 @@
 package com.example.minhapressaoarterial.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Index
 import com.example.minhapressaoarterial.R
-import com.example.minhapressaoarterial.view.UpdateRegisterActivity
 import com.example.minhapressaoarterial.model.BloodPressure
 
-class BloodAdapter (val context: Context, private val listener: OnItemClickListener) :
+class BloodAdapter (context: Context,
+                    bloodPressure: ArrayList<BloodPressure>,
+                    listener: OnItemClickListener
+) :
     RecyclerView.Adapter<BloodAdapter.BloodPressureViewHolder>(){
+    private var listBloodPressure: List<BloodPressure> = bloodPressure
+    private var listenerBloodPressure: OnItemClickListener = listener
 
-    private var list = emptyList<BloodPressure>()
+    interface OnItemClickListener {
+        fun onItemClick(bloodPressure: BloodPressure)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BloodPressureViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_bloodpressure, parent, false)
@@ -25,29 +29,28 @@ class BloodAdapter (val context: Context, private val listener: OnItemClickListe
     }
 
     override fun onBindViewHolder(holder: BloodPressureViewHolder, position: Int) {
-        holder.bind(list[position])
+        val currentBloodPressure: BloodPressure = listBloodPressure[position]
+        holder.bind(currentBloodPressure, listenerBloodPressure)
 
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return listBloodPressure.size
     }
 
     fun setBloodPressure(bloodPressure: List<BloodPressure>) {
-        this.list = bloodPressure
+        this.listBloodPressure = bloodPressure
         notifyDataSetChanged()
     }
 
-    inner class BloodPressureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-    View.OnClickListener {
+    class BloodPressureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         private val sisResult: TextView = itemView.findViewById(R.id.tvSisResult)
         private val diaResult: TextView = itemView.findViewById(R.id.tvDiaResult)
         private val pulResult: TextView = itemView.findViewById(R.id.tvPulResult)
         private val healthStatusImage: ImageView = itemView.findViewById(R.id.ivHealthStatus)
-        val rowItemCardViewLayout: CardView = itemView.findViewById(R.id.row_item_layout)
 
 
-        fun bind(bloodPressure: BloodPressure) {
+        fun bind(bloodPressure: BloodPressure, listener: OnItemClickListener) {
             sisResult.text = bloodPressure.sisPressure.toString()
             diaResult.text = bloodPressure.diaPressure.toString()
             pulResult.text = bloodPressure.pulPressure.toString()
@@ -58,22 +61,12 @@ class BloodAdapter (val context: Context, private val listener: OnItemClickListe
                 else -> R.drawable.ic_healtstatus
             })
 
-        }
-
-        init {
-            itemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            val position: Int = adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+            itemView.setOnClickListener {
+                listener.onItemClick(bloodPressure)
             }
-        }
-    }
 
-    interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        }
+
     }
 
 }

@@ -14,6 +14,9 @@ interface BloodPressureDao {
     @Update
     suspend fun update(pressure: BloodPressure)
 
+    @Query ("SELECT * FROM blood_pressure WHERE bloodId in (:id)")
+    fun getBloodPressureById(id: Int?): List<BloodPressure>
+
     @Query("DELETE FROM blood_pressure")
     suspend fun deleteAll()
 
