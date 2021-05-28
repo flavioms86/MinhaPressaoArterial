@@ -12,7 +12,7 @@
     <!-- New register activity -->
 
     <string name="new_register_toolbar_title">Novo registro</string>
-    <string name="type_all_fields_message">Por favor, preencher todos os campos!</string>
+    <string name="type_all_fields_message">Por favor, preencher todos os campos corretamente!</string>
     <string name="bloodpressurehardware">Após aferir sua pressão sanguínea \nutilizando um esfigmomanômetro, entre \ncom os valores nos campos abaixo:</string>
     <string name="hintSistolica">Sistólica(mmHg)</string>
     <string name="hintDiastolica">Diastólica(mmHg)</string>
@@ -24,6 +24,7 @@
     <!-- Itens do Spinner -->
 
     <string-array name="health_status">
+        <item>Selecionar</item>
         <item>Nada bem</item>
         <item>Normal</item>
         <item>Muito bem</item>

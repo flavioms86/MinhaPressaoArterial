@@ -7,10 +7,11 @@ import androidx.room.PrimaryKey
 import java.io.Serializable
 import java.util.*
 
+
 @Entity(tableName = "blood_pressure")
 data class BloodPressure(
     @PrimaryKey(autoGenerate = true)
-    val bloodId: Int,
+    var bloodId: Int,
     @ColumnInfo(name = "register_time")
     val registerTime: Long = System.currentTimeMillis(),
     @ColumnInfo(name = "sis_pressure")

@@ -27,8 +27,7 @@ import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
-BloodAdapter.OnItemClickListener{
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var toolbar: Toolbar
     lateinit var drawerLayout: DrawerLayout
@@ -37,6 +36,8 @@ BloodAdapter.OnItemClickListener{
     lateinit var fabAdd: FloatingActionButton
 
     private val newBloodPressureActivityRequestCode = 1
+    private val updateBloodPressureActivityRequestCode = 2
+
     private val bloodPressureViewModel: BloodPressureViewModel by viewModels {
         BloodPressureViewModelFactory((application as BloodPressureApplication).repository)
     }
@@ -62,10 +63,12 @@ BloodAdapter.OnItemClickListener{
         navigationView = findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
+        val adapter = BloodAdapter(this)
         val recyclerView = findViewById<RecyclerView>(R.id.rvList)
-        val adapter = BloodAdapter(this, this)
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+
 
         bloodPressureViewModel.allBloodPressures.observe(this) { bloodPressure ->
             bloodPressure.let { adapter.setBloodPressure(it) }
@@ -75,10 +78,20 @@ BloodAdapter.OnItemClickListener{
             val intent = Intent(this, NewRegisterActivity::class.java)
             startActivityForResult(intent, newBloodPressureActivityRequestCode)
         }
-    }
 
-    override fun onItemClick(position: Int) {
-        Toast.makeText(this, "Item $position clicked", Toast.LENGTH_SHORT).show()
+        adapter.setOnItemClickListener(object : BloodAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val bloodPosition = adapter.getBloodAtPosition(position)
+                val intent = Intent (this@MainActivity, UpdateRegisterActivity::class.java)
+                intent.putExtra(UpdateRegisterActivity.EXTRA_ID, bloodPosition.bloodId)
+                intent.putExtra(UpdateRegisterActivity.EXTRA_SIS, bloodPosition.sisPressure.toString())
+                intent.putExtra(UpdateRegisterActivity.EXTRA_DIA, bloodPosition.diaPressure.toString())
+                intent.putExtra(UpdateRegisterActivity.EXTRA_PUL, bloodPosition.pulPressure.toString())
+                startActivityForResult(intent, updateBloodPressureActivityRequestCode)
+            }
+
+        })
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
@@ -101,6 +114,27 @@ BloodAdapter.OnItemClickListener{
 
             bloodPressureViewModel.insertBloodPressure(bloodPressure)
 
+
+        } else if (requestCode == updateBloodPressureActivityRequestCode && resultCode == Activity.RESULT_OK) {
+
+            val id = intentData?.getIntExtra(UpdateRegisterActivity.EXTRA_ID, -1)
+            val sisResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_SIS)
+            val diaResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_DIA)
+            val pulResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_PUL)
+            val spHealthSelection = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_SPHEALTH)
+            val updateBloodPressure = BloodPressure(
+                0,
+                System.currentTimeMillis(),
+                sisResult.toString().toInt(),
+                diaResult.toString().toInt(),
+                pulResult.toString().toInt(),
+                spHealthSelection.toString()
+
+            )
+            if (id != null) {
+                updateBloodPressure.bloodId = id
+            }
+            bloodPressureViewModel.updateBloodPressure(updateBloodPressure)
 
         } else {
             Toast.makeText(
@@ -135,7 +169,7 @@ BloodAdapter.OnItemClickListener{
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.item_menu_clear -> {
                 clearAllDialog()
                 true
@@ -149,16 +183,28 @@ BloodAdapter.OnItemClickListener{
         val dialogBuilder = AlertDialog.Builder(this)
         dialogBuilder.setTitle(getString(R.string.delete_entries))
         dialogBuilder.setMessage(getString(R.string.clear_confirmation_message))
-        dialogBuilder.setPositiveButton(getString(R.string.clear_yes_confirmation), DialogInterface.OnClickListener{ dialog, id ->
-            bloodPressureViewModel.deleteBloodPressure()
-            Toast.makeText(this, getString(R.string.cleared_entries_message), Toast.LENGTH_SHORT).show()
-            dialog.cancel()
-        })
-        dialogBuilder.setNegativeButton(getString(R.string.clear_no_confirmation), DialogInterface.OnClickListener{ dialog, id ->
-            Toast.makeText(this, getString(R.string.not_cleared_entries_message), Toast.LENGTH_SHORT).show()
-            dialog.cancel()
+        dialogBuilder.setPositiveButton(
+            getString(R.string.clear_yes_confirmation),
+            DialogInterface.OnClickListener { dialog, id ->
+                bloodPressureViewModel.deleteBloodPressure()
+                Toast.makeText(
+                    this,
+                    getString(R.string.cleared_entries_message),
+                    Toast.LENGTH_SHORT
+                ).show()
+                dialog.cancel()
+            })
+        dialogBuilder.setNegativeButton(
+            getString(R.string.clear_no_confirmation),
+            DialogInterface.OnClickListener { dialog, id ->
+                Toast.makeText(
+                    this,
+                    getString(R.string.not_cleared_entries_message),
+                    Toast.LENGTH_SHORT
+                ).show()
+                dialog.cancel()
 
-        })
+            })
         val alert = dialogBuilder.create()
         alert.show()
     }
