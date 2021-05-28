@@ -19,6 +19,7 @@ class UpdateRegisterActivity : AppCompatActivity() {
     private lateinit var diaResultUpdate: TextView
     private lateinit var pulResultUpdate: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_register)
