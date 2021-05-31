@@ -23,4 +23,9 @@ class BloodRepository(private val bloodDao: BloodPressureDao) {
         bloodDao.deleteAll()
     }
 
+    @WorkerThread
+    suspend fun deleteBloodPressure(pressure: BloodPressure) {
+        bloodDao.deleteBloodPressure(pressure)
+    }
+
 }

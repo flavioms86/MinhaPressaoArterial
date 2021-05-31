@@ -20,10 +20,13 @@ class BloodPressureViewModel(private val repository: BloodRepository) : ViewMode
         repository.update(pressure)
     }
 
-    fun deleteBloodPressure() = viewModelScope.launch {
+    fun deleteBloodPressures() = viewModelScope.launch {
         repository.deleteAll()
     }
 
+    fun deleteBloodPressure(pressure: BloodPressure) = viewModelScope.launch {
+        repository.deleteBloodPressure(pressure)
+    }
 }
 
 class BloodPressureViewModelFactory(private val repository: BloodRepository) : ViewModelProvider.Factory  {

@@ -55,7 +55,7 @@ class NewRegisterActivity : AppCompatActivity(){
 
         saveButton.setOnClickListener {
             val replyIntent = Intent()
-            if(sisResult.text.isEmpty() || diaResult.text.isEmpty() || pulResult.text.isEmpty()) {
+            if(sisResult.text.isEmpty() || diaResult.text.isEmpty() || pulResult.text.isEmpty() || spinnerSelection.equals("Selecionar")) {
                 Toast.makeText(this, getString(R.string.type_all_fields_message), Toast.LENGTH_SHORT).show()
             } else {
                 val sis = sisResult.text.toString()

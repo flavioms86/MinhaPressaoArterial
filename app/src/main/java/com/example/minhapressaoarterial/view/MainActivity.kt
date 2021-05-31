@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minhapressaoarterial.R
@@ -78,6 +79,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val intent = Intent(this, NewRegisterActivity::class.java)
             startActivityForResult(intent, newBloodPressureActivityRequestCode)
         }
+
+        val swipeHandler = object : SwipeToDeleteCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val position = viewHolder.adapterPosition
+                val swipedBloodPressure = adapter.getBloodAtPosition(position)
+                bloodPressureViewModel.deleteBloodPressure(swipedBloodPressure)
+                Toast.makeText(applicationContext, "Registro apagado!", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
 
         adapter.setOnItemClickListener(object : BloodAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
@@ -186,7 +200,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         dialogBuilder.setPositiveButton(
             getString(R.string.clear_yes_confirmation),
             DialogInterface.OnClickListener { dialog, id ->
-                bloodPressureViewModel.deleteBloodPressure()
+                bloodPressureViewModel.deleteBloodPressures()
                 Toast.makeText(
                     this,
                     getString(R.string.cleared_entries_message),

@@ -86,6 +86,11 @@ class UpdateRegisterActivity : AppCompatActivity() {
 
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     companion object {
         const val EXTRA_ID: String = "com.example.minhapressaoarterial.EXTRA_ID"
         const val EXTRA_SIS: String = "com.example.minhapressaoarterial.EXTRA_SIS"
