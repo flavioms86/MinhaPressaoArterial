@@ -4,12 +4,14 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -27,6 +29,9 @@ import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModel
 import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -108,8 +113,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
         super.onActivityResult(requestCode, resultCode, intentData)
+
+        val currentDateTime = LocalDateTime.now()
 
         if (requestCode == newBloodPressureActivityRequestCode && resultCode == Activity.RESULT_OK) {
 
@@ -118,8 +126,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val pulResult = intentData?.getStringExtra(NewRegisterActivity.EXTRA_PUL)
             val spHealthSelection = intentData?.getStringExtra(NewRegisterActivity.EXTRA_SPHEALTH)
             val bloodPressure = BloodPressure(
-                0,
-                System.currentTimeMillis(),
+                currentDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
                 sisResult.toString().toInt(),
                 diaResult.toString().toInt(),
                 pulResult.toString().toInt(),
@@ -130,20 +137,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         } else if (requestCode == updateBloodPressureActivityRequestCode && resultCode == Activity.RESULT_OK) {
-
             val id = intentData?.getIntExtra(UpdateRegisterActivity.EXTRA_ID, -1)
             val sisResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_SIS)
             val diaResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_DIA)
             val pulResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_PUL)
             val spHealthSelection = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_SPHEALTH)
             val updateBloodPressure = BloodPressure(
-                0,
-                System.currentTimeMillis(),
+                currentDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
                 sisResult.toString().toInt(),
                 diaResult.toString().toInt(),
                 pulResult.toString().toInt(),
                 spHealthSelection.toString()
-
             )
             if (id != null) {
                 updateBloodPressure.bloodId = id

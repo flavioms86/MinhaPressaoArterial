@@ -10,6 +10,8 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minhapressaoarterial.R
 import com.example.minhapressaoarterial.model.BloodPressure
+import org.w3c.dom.Text
+import java.util.*
 
 class BloodAdapter(val context: Context) :
     RecyclerView.Adapter<BloodAdapter.BloodPressureViewHolder>() {
@@ -42,13 +44,14 @@ class BloodAdapter(val context: Context) :
         private val diaResult: TextView = itemView.findViewById(R.id.tvDiaResult)
         private val pulResult: TextView = itemView.findViewById(R.id.tvPulResult)
         private val healthStatusImage: ImageView = itemView.findViewById(R.id.ivHealthStatus)
-        val rowItemCardViewLayout: CardView = itemView.findViewById(R.id.row_item_layout)
+        private val registerTime: TextView = itemView.findViewById(R.id.tvRegistDate)
 
 
         fun bind(bloodPressure: BloodPressure) {
             sisResult.text = bloodPressure.sisPressure.toString()
             diaResult.text = bloodPressure.diaPressure.toString()
             pulResult.text = bloodPressure.pulPressure.toString()
+            registerTime.text = bloodPressure.registerTime.toString()
             healthStatusImage.setImageResource(
                 when (bloodPressure.healthStats) {
                     "Nada bem" -> R.drawable.badhealthicon
