@@ -2,15 +2,15 @@ package com.example.minhapressaoarterial.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import java.time.LocalDateTime
-import java.util.*
+import java.time.OffsetDateTime
 
 
 @Entity(tableName = "blood_pressure")
 data class BloodPressure(
     @ColumnInfo(name = "register_time")
-    val registerTime: String,
+    val registerTime: OffsetDateTime? = null,
     @ColumnInfo(name = "sis_pressure")
     val sisPressure: Int,
     @ColumnInfo(name = "dia_pressure")
@@ -22,7 +22,10 @@ data class BloodPressure(
 ) {
     @PrimaryKey(autoGenerate = true)
     var bloodId: Int = 0
-    //@Ignore constructor(): this(0, null, 0, 0, 0, "")
+
+    @Ignore
+    constructor(): this(null, 0, 0, 0,  "")
 }
+
 
 

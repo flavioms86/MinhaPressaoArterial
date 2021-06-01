@@ -1,16 +1,19 @@
 package com.example.minhapressaoarterial.adapter
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.minhapressaoarterial.R
 import com.example.minhapressaoarterial.model.BloodPressure
 import org.w3c.dom.Text
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class BloodAdapter(val context: Context) :
@@ -25,6 +28,7 @@ class BloodAdapter(val context: Context) :
         return BloodPressureViewHolder(view)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: BloodPressureViewHolder, position: Int) {
         holder.bind(list[position])
 
@@ -45,13 +49,16 @@ class BloodAdapter(val context: Context) :
         private val pulResult: TextView = itemView.findViewById(R.id.tvPulResult)
         private val healthStatusImage: ImageView = itemView.findViewById(R.id.ivHealthStatus)
         private val registerTime: TextView = itemView.findViewById(R.id.tvRegistDate)
+        @RequiresApi(Build.VERSION_CODES.O)
+        private val formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss")
 
 
+        @RequiresApi(Build.VERSION_CODES.O)
         fun bind(bloodPressure: BloodPressure) {
             sisResult.text = bloodPressure.sisPressure.toString()
             diaResult.text = bloodPressure.diaPressure.toString()
             pulResult.text = bloodPressure.pulPressure.toString()
-            registerTime.text = bloodPressure.registerTime.toString()
+            registerTime.text = bloodPressure.registerTime?.toLocalDateTime()?.format(formatter).toString()
             healthStatusImage.setImageResource(
                 when (bloodPressure.healthStats) {
                     "Nada bem" -> R.drawable.badhealthicon

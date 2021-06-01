@@ -1,16 +1,29 @@
 package com.example.minhapressaoarterial.database
 
-import androidx.room.TypeConverter
-import java.util.*
 
-class Converters {
+import android.os.Build
+import androidx.annotation.RequiresApi
+import androidx.room.TypeConverter
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
+
+object Converters {
+    @RequiresApi(Build.VERSION_CODES.O)
+    private val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
+
+    @RequiresApi(Build.VERSION_CODES.O)
     @TypeConverter
-    fun fromTimestamp(value: Long?): Calendar? = value?.let { value ->
-        GregorianCalendar().also { calendar ->
-            calendar.timeInMillis = value
+    @JvmStatic
+    fun toOffsetDateTime(value: String?): OffsetDateTime? {
+        return value?.let {
+            return formatter.parse(value, OffsetDateTime::from)
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     @TypeConverter
-    fun toTimestamp(timestamp: Calendar?): Long? = timestamp?.timeInMillis
+    @JvmStatic
+    fun fromOffsetDateTime(date: OffsetDateTime?): String? {
+        return date?.format(formatter)
+    }
 }
