@@ -3,6 +3,7 @@ package com.example.minhapressaoarterial.viewmodel
 import androidx.lifecycle.*
 import com.example.minhapressaoarterial.database.BloodRepository
 import com.example.minhapressaoarterial.model.BloodPressure
+import com.example.minhapressaoarterial.model.BloodUpdate
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
@@ -16,8 +17,8 @@ class BloodPressureViewModel(private val repository: BloodRepository) : ViewMode
         repository.insert(pressure)
     }
 
-    fun updateBloodPressure (pressure: BloodPressure) = viewModelScope.launch {
-        repository.update(pressure)
+    fun updateBloodPressureSingle (pressure: BloodUpdate) = viewModelScope.launch {
+        repository.updateSingle(pressure)
     }
 
     fun deleteBloodPressures() = viewModelScope.launch {

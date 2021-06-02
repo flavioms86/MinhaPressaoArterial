@@ -2,6 +2,7 @@ package com.example.minhapressaoarterial.database
 
 import androidx.annotation.WorkerThread
 import com.example.minhapressaoarterial.model.BloodPressure
+import com.example.minhapressaoarterial.model.BloodUpdate
 import kotlinx.coroutines.flow.Flow
 
 class BloodRepository(private val bloodDao: BloodPressureDao) {
@@ -14,8 +15,8 @@ class BloodRepository(private val bloodDao: BloodPressureDao) {
     }
 
     @WorkerThread
-    suspend fun update(pressure: BloodPressure) {
-        bloodDao.update(pressure)
+    suspend fun updateSingle(pressure: BloodUpdate) {
+        bloodDao.updateSingle(pressure)
     }
 
     @WorkerThread

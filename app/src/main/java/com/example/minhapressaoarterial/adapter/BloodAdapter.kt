@@ -67,7 +67,6 @@ class BloodAdapter(val context: Context) :
                     else -> R.drawable.ic_healtstatus
                 }
             )
-
         }
 
         init {

@@ -3,6 +3,7 @@ package com.example.minhapressaoarterial.database
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.minhapressaoarterial.model.BloodPressure
+import com.example.minhapressaoarterial.model.BloodUpdate
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -11,8 +12,9 @@ interface BloodPressureDao {
     @Insert
     suspend fun insert(pressure: BloodPressure)
 
-    @Update
-    suspend fun update(pressure: BloodPressure)
+    //Using partial entity for update only selected fields. Check BloodPressure
+    @Update(entity = BloodPressure::class)
+    suspend fun updateSingle(pressure: BloodUpdate)
     
     @Delete
     suspend fun deleteBloodPressure(pressure: BloodPressure)

@@ -25,6 +25,7 @@ import com.example.minhapressaoarterial.R
 import com.example.minhapressaoarterial.adapter.BloodAdapter
 import com.example.minhapressaoarterial.database.BloodPressureApplication
 import com.example.minhapressaoarterial.model.BloodPressure
+import com.example.minhapressaoarterial.model.BloodUpdate
 import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModel
 import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -132,7 +133,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 spHealthSelection.toString()
             )
 
-
             bloodPressureViewModel.insertBloodPressure(bloodPressure)
 
 
@@ -142,8 +142,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val diaResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_DIA)
             val pulResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_PUL)
             val spHealthSelection = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_SPHEALTH)
-            val updateBloodPressure = BloodPressure(
-                OffsetDateTime.now(),
+            val updateBloodPressure = BloodUpdate(
                 sisResult.toString().toInt(),
                 diaResult.toString().toInt(),
                 pulResult.toString().toInt(),
@@ -152,7 +151,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (id != null) {
                 updateBloodPressure.bloodId = id
             }
-            bloodPressureViewModel.updateBloodPressure(updateBloodPressure)
+            bloodPressureViewModel.updateBloodPressureSingle(updateBloodPressure)
 
         } else {
             Toast.makeText(

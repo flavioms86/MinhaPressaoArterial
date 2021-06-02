@@ -1,11 +1,22 @@
 package com.example.minhapressaoarterial.model
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
+import androidx.room.*
 import java.time.OffsetDateTime
 
+//Partial entity
+data class BloodUpdate(
+    @ColumnInfo(name = "sis_pressure")
+    val sisPressure: Int,
+    @ColumnInfo(name = "dia_pressure")
+    val diaPressure: Int,
+    @ColumnInfo(name = "pul_pressure")
+    val pulPressure: Int,
+    @ColumnInfo(name = "health_status")
+    val healthStats: String
+) {
+    @PrimaryKey(autoGenerate = true)
+    var bloodId: Int = 0
+}
 
 @Entity(tableName = "blood_pressure")
 data class BloodPressure(
