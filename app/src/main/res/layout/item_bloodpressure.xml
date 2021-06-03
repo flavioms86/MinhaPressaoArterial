@@ -2,123 +2,132 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="8dp"
+    android:layout_height="100dp"
+    android:layout_margin="4dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="2dp"
     android:id="@+id/row_item_layout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="6dp">
+        android:layout_height="match_parent"
+        android:padding="2dp">
 
         <ImageView
             android:id="@+id/ivHealthStatus"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
             android:src="@drawable/ic_healtstatus"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvSis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="SIS:"
-            android:textSize="18sp"
+            android:text="Sistólica:"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/ivHealthStatus"
-            app:layout_constraintStart_toEndOf="@id/ivHealthStatus"
-            app:layout_constraintTop_toTopOf="@id/ivHealthStatus"
-            app:layout_constraintVertical_bias="0.2" />
+            app:layout_constraintBottom_toTopOf="@+id/tvSisResult"
+            app:layout_constraintEnd_toStartOf="@+id/tvDia"
+            app:layout_constraintStart_toEndOf="@+id/ivHealthStatus"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvSisResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
             android:text="128"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSis"
-            app:layout_constraintStart_toEndOf="@id/tvSis"
-            app:layout_constraintTop_toTopOf="@+id/tvSis" />
+            app:layout_constraintBottom_toTopOf="@+id/tvRegistDateTitle"
+            app:layout_constraintEnd_toEndOf="@+id/tvSis"
+            app:layout_constraintStart_toStartOf="@+id/tvSis"
+            app:layout_constraintTop_toBottomOf="@+id/tvSis" />
 
         <TextView
             android:id="@+id/tvDia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="DIA:"
-            android:textSize="18sp"
+            android:text="Diastólica:"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSisResult"
-            app:layout_constraintStart_toEndOf="@+id/tvSisResult"
-            app:layout_constraintTop_toTopOf="@+id/tvSisResult" />
+            app:layout_constraintBottom_toTopOf="@+id/tvDiaResult"
+            app:layout_constraintEnd_toStartOf="@+id/tvPul"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvSis"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvDiaResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:text="850"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvDia"
-            app:layout_constraintStart_toEndOf="@id/tvDia"
-            app:layout_constraintTop_toTopOf="@+id/tvDia" />
 
         <TextView
             android:id="@+id/tvPul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="PUL:"
-            android:textSize="18sp"
+            android:text="Pulso:"
+            android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvDiaResult"
-            app:layout_constraintStart_toEndOf="@id/tvDiaResult"
-            app:layout_constraintTop_toTopOf="@+id/tvDiaResult" />
+            app:layout_constraintBottom_toTopOf="@+id/tvPulResult"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvDia"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDiaResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="850"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvRegistDateTitle"
+            app:layout_constraintEnd_toEndOf="@+id/tvDia"
+            app:layout_constraintStart_toStartOf="@+id/tvDia"
+            app:layout_constraintTop_toBottomOf="@+id/tvDia" />
 
         <TextView
             android:id="@+id/tvPulResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
             android:text="101"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvPul"
-            app:layout_constraintStart_toEndOf="@id/tvPul"
-            app:layout_constraintTop_toTopOf="@+id/tvPul" />
+            app:layout_constraintBottom_toTopOf="@+id/tvRegistDateTitle"
+            app:layout_constraintEnd_toEndOf="@+id/tvPul"
+            app:layout_constraintStart_toStartOf="@+id/tvPul"
+            app:layout_constraintTop_toBottomOf="@+id/tvPul" />
 
         <TextView
             android:id="@+id/tvRegistDateTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginBottom="2dp"
             android:text="Registrado em:"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvRegistDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/ivHealthStatus"
-            app:layout_constraintTop_toBottomOf="@+id/tvSis" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDiaResult" />
 
         <TextView
             android:id="@+id/tvRegistDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
             android:text="17/05/2021 as 10:48"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/tvRegistDateTitle"
-            app:layout_constraintStart_toEndOf="@+id/tvRegistDateTitle"
-            app:layout_constraintTop_toTopOf="@+id/tvRegistDateTitle" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ivHealthStatus"
+            app:layout_constraintTop_toBottomOf="@+id/tvRegistDateTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
