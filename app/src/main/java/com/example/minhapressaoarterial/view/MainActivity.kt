@@ -134,6 +134,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             )
 
             bloodPressureViewModel.insertBloodPressure(bloodPressure)
+            Toast.makeText(this, "Registrado", Toast.LENGTH_SHORT).show()
 
 
         } else if (requestCode == updateBloodPressureActivityRequestCode && resultCode == Activity.RESULT_OK) {
@@ -152,6 +153,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 updateBloodPressure.bloodId = id
             }
             bloodPressureViewModel.updateBloodPressureSingle(updateBloodPressure)
+            Toast.makeText(this, "Registro atualizado!", Toast.LENGTH_SHORT).show()
 
         } else {
             Toast.makeText(
