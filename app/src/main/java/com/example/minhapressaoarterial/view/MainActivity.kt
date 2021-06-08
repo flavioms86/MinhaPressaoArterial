@@ -30,9 +30,7 @@ import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModel
 import com.example.minhapressaoarterial.viewmodel.BloodPressureViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
-import java.time.LocalDateTime
 import java.time.OffsetDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -173,9 +171,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.imHistory -> Toast.makeText(this, "Item 1", Toast.LENGTH_LONG).show()
-            R.id.imHelp -> Toast.makeText(this, "Item 2", Toast.LENGTH_LONG).show()
-            R.id.imAbout -> Toast.makeText(this, "Item 3", Toast.LENGTH_LONG).show()
+            R.id.imReports -> Toast.makeText(this, "Em desenvolvimento.", Toast.LENGTH_LONG).show()
+
+            R.id.imHelp -> {
+                val intent = Intent(this, HelpActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.imAbout -> {
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
