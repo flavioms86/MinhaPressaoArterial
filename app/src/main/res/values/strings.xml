@@ -48,6 +48,7 @@
     <string name="new_update_toolbar_title">Atualizar registro</string>
     <string name="help_title">Ajuda</string>
     <string name="about_title">Sobre</string>
+    <string name="hint_observations">Observações</string>
 
 
 </resources>

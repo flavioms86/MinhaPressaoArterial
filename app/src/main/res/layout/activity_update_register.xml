@@ -139,6 +139,33 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvHeathStatusTitleUpdate" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etObservationsUpdate"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:inputType="text|textMultiLine"
+                android:hint="@string/hint_observations"
+                app:counterEnabled="true"
+                app:counterMaxLength="100"
+                app:layout_constraintBottom_toTopOf="@+id/button_update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spHealthSelectorUpdate">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tfObservationsUpdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <Button
                 android:id="@+id/button_update"
                 android:layout_width="160dp"
@@ -150,7 +177,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spHealthSelectorUpdate" />
+                app:layout_constraintTop_toBottomOf="@id/etObservationsUpdate" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

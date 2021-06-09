@@ -119,7 +119,7 @@
                 android:id="@+id/tvHeathStatusTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/titleFeeling"
                 android:textAlignment="center"
                 android:textSize="20sp"
@@ -144,16 +144,39 @@
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/saveButton"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/spHealthSelector" />
+                app:layout_constraintTop_toBottomOf="@+id/etObservations" />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etObservations"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:inputType="text|textMultiLine"
+                android:hint="@string/hint_observations"
+                app:counterEnabled="true"
+                app:counterMaxLength="100"
+                app:layout_constraintBottom_toTopOf="@+id/button_save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spHealthSelector">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tfObservations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:maxLength="100"
+                    android:textSize="20sp" />
 
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
