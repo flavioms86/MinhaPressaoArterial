@@ -158,7 +158,6 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:inputType="text|textMultiLine"
                 android:hint="@string/hint_observations"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
@@ -173,6 +172,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="textStart"
+                    android:inputType="textMultiLine|textCapSentences"
                     android:maxLength="100"
                     android:textSize="20sp" />
 
