@@ -51,6 +51,7 @@ class NewRegisterActivity : AppCompatActivity(){
         val sisResult = findViewById<TextView?>(R.id.tfEditSis)
         val diaResult = findViewById<TextView?>(R.id.tfEditDia)
         val pulResult = findViewById<TextView?>(R.id.tfEditPul)
+        val healthObservations = findViewById<TextView>(R.id.tfHealthObservations)
         saveButton = findViewById(R.id.button_save)
 
         saveButton.setOnClickListener {
@@ -62,10 +63,12 @@ class NewRegisterActivity : AppCompatActivity(){
                 val dia = diaResult.text.toString()
                 val pul = pulResult.text.toString()
                 val spHealthStatus = spinnerSelection
+                val observations = healthObservations.text.toString()
                 replyIntent.putExtra(EXTRA_SIS, sis)
                 replyIntent.putExtra(EXTRA_DIA, dia)
                 replyIntent.putExtra(EXTRA_PUL, pul)
                 replyIntent.putExtra(EXTRA_SPHEALTH, spHealthStatus)
+                replyIntent.putExtra(EXTRA_HEALTH_OBSERVATIONS, observations)
                 setResult(Activity.RESULT_OK, replyIntent)
                 finish()
             }
@@ -84,6 +87,7 @@ class NewRegisterActivity : AppCompatActivity(){
         const val EXTRA_DIA: String = "com.example.minhapressaoarterial.EXTRA_DIA"
         const val EXTRA_PUL: String = "com.example.minhapressaoarterial.EXTRA_PUL"
         const val EXTRA_SPHEALTH: String = "com.example.minhapressaoarterial.EXTRA_SPHEALTH"
+        const val EXTRA_HEALTH_OBSERVATIONS: String = "com.example.minhapressaoarterial.EXTRA_HEALTH_OBSERVATIONS"
     }
 
 }

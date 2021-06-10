@@ -150,10 +150,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etObservations" />
+                app:layout_constraintTop_toBottomOf="@+id/etHealthObservations" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/etObservations"
+                android:id="@+id/etHealthObservations"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/spHealthSelector">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tfObservations"
+                    android:id="@+id/tfHealthObservations"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="textStart"

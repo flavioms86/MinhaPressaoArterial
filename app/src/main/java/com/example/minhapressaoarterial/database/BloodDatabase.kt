@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-@Database(entities = [BloodPressure::class], version = 9, exportSchema = false)
+@Database(entities = [BloodPressure::class], version = 10, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class BloodDatabase : RoomDatabase() {
 

@@ -18,6 +18,7 @@ class UpdateRegisterActivity : AppCompatActivity() {
     private lateinit var sisResultUpdate: TextView
     private lateinit var diaResultUpdate: TextView
     private lateinit var pulResultUpdate: TextView
+    private lateinit var healthObservations: TextView
 
 
 
@@ -57,9 +58,12 @@ class UpdateRegisterActivity : AppCompatActivity() {
         sisResultUpdate = findViewById(R.id.tfEditSisUpdate)
         diaResultUpdate = findViewById(R.id.tfEditDiaUpdate)
         pulResultUpdate = findViewById(R.id.tfEditPulUpdate)
+        healthObservations = findViewById(R.id.tfObservationsUpdate)
         sisResultUpdate.text = intent.getStringExtra(EXTRA_SIS)
         diaResultUpdate.text = intent.getStringExtra(EXTRA_DIA)
         pulResultUpdate.text = intent.getStringExtra(EXTRA_PUL)
+        healthObservations.text = intent.getStringExtra(EXTRA_HEALTH_OBSERVATIONS)
+
 
         updateButton = findViewById(R.id.button_update)
 
@@ -73,10 +77,12 @@ class UpdateRegisterActivity : AppCompatActivity() {
                 val dia = diaResultUpdate.text.toString()
                 val pul = pulResultUpdate.text.toString()
                 val spHealthStatus = spinnerSelection
+                val observations = healthObservations.text.toString()
                 replyIntent.putExtra(EXTRA_SIS, sis)
                 replyIntent.putExtra(EXTRA_DIA, dia)
                 replyIntent.putExtra(EXTRA_PUL, pul)
                 replyIntent.putExtra(EXTRA_SPHEALTH, spHealthStatus)
+                replyIntent.putExtra(EXTRA_HEALTH_OBSERVATIONS, observations)
                 replyIntent.putExtra(EXTRA_ID, id)
                 setResult(Activity.RESULT_OK, replyIntent)
                 finish()
@@ -97,5 +103,7 @@ class UpdateRegisterActivity : AppCompatActivity() {
         const val EXTRA_DIA: String = "com.example.minhapressaoarterial.EXTRA_DIA"
         const val EXTRA_PUL: String = "com.example.minhapressaoarterial.EXTRA_PUL"
         const val EXTRA_SPHEALTH: String = "com.example.minhapressaoarterial.EXTRA_SPHEALTH"
+        const val EXTRA_HEALTH_OBSERVATIONS: String = "com.example.minhapressaoarterial.EXTRA_HEALTH_OBSERVATIONS"
+
     }
 }

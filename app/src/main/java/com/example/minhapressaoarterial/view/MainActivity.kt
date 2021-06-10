@@ -106,6 +106,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 intent.putExtra(UpdateRegisterActivity.EXTRA_SIS, bloodPosition.sisPressure.toString())
                 intent.putExtra(UpdateRegisterActivity.EXTRA_DIA, bloodPosition.diaPressure.toString())
                 intent.putExtra(UpdateRegisterActivity.EXTRA_PUL, bloodPosition.pulPressure.toString())
+                intent.putExtra(UpdateRegisterActivity.EXTRA_HEALTH_OBSERVATIONS, bloodPosition.healthObservations.toString())
                 startActivityForResult(intent, updateBloodPressureActivityRequestCode)
             }
 
@@ -123,12 +124,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val diaResult = intentData?.getStringExtra(NewRegisterActivity.EXTRA_DIA)
             val pulResult = intentData?.getStringExtra(NewRegisterActivity.EXTRA_PUL)
             val spHealthSelection = intentData?.getStringExtra(NewRegisterActivity.EXTRA_SPHEALTH)
+            val healthObservations = intentData?.getStringExtra(NewRegisterActivity.EXTRA_HEALTH_OBSERVATIONS)
             val bloodPressure = BloodPressure(
                 OffsetDateTime.now(),
                 sisResult.toString().toInt(),
                 diaResult.toString().toInt(),
                 pulResult.toString().toInt(),
-                spHealthSelection.toString()
+                spHealthSelection.toString(),
+                healthObservations.toString()
             )
 
             bloodPressureViewModel.insertBloodPressure(bloodPressure)
@@ -141,11 +144,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val diaResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_DIA)
             val pulResult = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_PUL)
             val spHealthSelection = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_SPHEALTH)
+            val healthObservations = intentData?.getStringExtra(UpdateRegisterActivity.EXTRA_HEALTH_OBSERVATIONS)
             val updateBloodPressure = BloodUpdate(
                 sisResult.toString().toInt(),
                 diaResult.toString().toInt(),
                 pulResult.toString().toInt(),
-                spHealthSelection.toString()
+                spHealthSelection.toString(),
+                healthObservations.toString()
             )
             if (id != null) {
                 updateBloodPressure.bloodId = id

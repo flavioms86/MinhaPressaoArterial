@@ -12,7 +12,9 @@ data class BloodUpdate(
     @ColumnInfo(name = "pul_pressure")
     val pulPressure: Int,
     @ColumnInfo(name = "health_status")
-    val healthStats: String
+    val healthStats: String,
+    @ColumnInfo(name = "health_observations")
+    val healthObservations: String?
 ) {
     @PrimaryKey(autoGenerate = true)
     var bloodId: Int = 0
@@ -29,13 +31,15 @@ data class BloodPressure(
     @ColumnInfo(name = "pul_pressure")
     val pulPressure: Int,
     @ColumnInfo(name = "health_status")
-    val healthStats: String
+    val healthStats: String,
+    @ColumnInfo(name = "health_observations")
+    val healthObservations: String?
 ) {
     @PrimaryKey(autoGenerate = true)
     var bloodId: Int = 0
 
     @Ignore
-    constructor(): this(null, 0, 0, 0,  "")
+    constructor(): this(null, 0, 0, 0,  "", "")
 }
 
 
